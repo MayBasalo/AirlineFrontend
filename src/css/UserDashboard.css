@@ -1,0 +1,170 @@
+/* src/css/UserDashboard.css */
+
+/* Background gradient */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #003399, #FFC72C, #D71920);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Dashboard Container */
+.user-dashboard {
+    padding: 20px 40px;
+    color: #003399;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #FFC72C;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* View toggle buttons */
+.view-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.view-toggle button {
+    margin: 0 6px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #FFC72C;
+    color: #003399;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-toggle button.active,
+.view-toggle button:hover {
+    background-color: #003399;
+    color: #FFC72C;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Table styling */
+.table-wrapper {
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #003399;
+    color: #FFC72C;
+    padding: 12px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 199, 44, 0.2);
+}
+
+/* Buttons for CRUD actions */
+.crud-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.crud-button.update {
+    background-color: #FFC72C;
+    color: #003399;
+}
+
+.crud-button.update:hover {
+    background-color: #003399;
+    color: #FFC72C;
+    transform: scale(1.05);
+}
+
+.crud-button.delete {
+    background-color: #D71920;
+    color: white;
+}
+
+.crud-button.delete:hover {
+    background-color: #a11318;
+    transform: scale(1.05);
+}
+
+/* Add button wrapper */
+.add-button-wrapper {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.add-button-wrapper .crud-button.add {
+    background-color: #003399;
+    color: #FFC72C;
+}
+
+.add-button-wrapper .crud-button.add:hover {
+    background-color: #FFC72C;
+    color: #003399;
+    transform: scale(1.05);
+}
+
+/* Logout Button */
+.logout-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logout-button {
+    background-color: #D71920;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #a11318;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-wrapper {
+        padding: 12px;
+    }
+
+    .view-toggle button {
+        padding: 8px 12px;
+        margin: 4px;
+    }
+}

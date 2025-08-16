@@ -1,0 +1,113 @@
+/* src/css/EditModal.css */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.edit-modal {
+    background: white;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.edit-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #FFC72C;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #D71920;
+    cursor: pointer;
+}
+
+.edit-modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #003399;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.edit-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background-color: #003399;
+    color: #FFC72C;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #FFC72C;
+    color: #003399;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #D71920;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #a11318;
+    transform: scale(1.05);
+}
+
+.error-message {
+    color: #D71920;
+    font-weight: bold;
+    margin-top: 8px;
+}

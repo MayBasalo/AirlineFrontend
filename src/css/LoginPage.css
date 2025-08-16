@@ -1,0 +1,185 @@
+/* src/css/LoginPage.css */
+
+/* Background Gradient with Animation */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #003399, #FFC72C, #D71920, #003399);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Centered Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Login Screen */
+.screen {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background shapes */
+.screen__background__shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+.screen__background__shape1 {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    right: -50px;
+    background-color: #003399;
+}
+
+.screen__background__shape2 {
+    width: 100px;
+    height: 100px;
+    bottom: -30px;
+    left: -30px;
+    background-color: #FFC72C;
+}
+
+.screen__background__shape3 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    background-color: #D71920;
+    transform: translate(-50%, -50%);
+}
+
+.screen__background__shape4 {
+    width: 120px;
+    height: 120px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #003399;
+}
+
+/* Welcome Text */
+.login__welcome {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login__welcome i {
+    font-size: 40px;
+    color: #D71920;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.welcome-title {
+    font-size: 1.8rem;
+    color: #003399;
+    margin: 0;
+    font-weight: bold;
+}
+
+.welcome-subtext {
+    font-size: 1rem;
+    color: #D71920;
+    margin-top: 5px;
+}
+
+/* Login Form */
+.login__field {
+    margin-bottom: 20px;
+}
+
+.login__label {
+    display: block;
+    font-weight: bold;
+    color: #003399;
+    margin-bottom: 5px;
+}
+
+.login__input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #FFC72C;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login__input:focus {
+    border-color: #D71920;
+    outline: none;
+}
+
+/* Login Button */
+.button.login__submit {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #003399;
+    color: #FFC72C;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button.login__submit:hover {
+    background-color: #FFC72C;
+    color: #003399;
+}
+
+/* Error Message */
+.error-message {
+    color: #D71920;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Footer Text */
+.login__footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #003399;
+}
+
+/* Clouds Animation for fun */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: floatClouds 40s linear infinite;
+}
+
+.cloud1 { width: 60px; height: 60px; top: 10%; left: -20%; }
+.cloud2 { width: 100px; height: 100px; top: 50%; left: -25%; }
+
+@keyframes floatClouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(120vw); }
+}

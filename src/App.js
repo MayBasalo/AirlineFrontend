@@ -1,35 +1,55 @@
-import React, { Component } from 'react';
-import Table from './components/Table.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import AdminDashboard from './pages/AdminDashboard';
+import LoginPage from './pages/LoginPage';
+import UserDashboard from './pages/UserDashboard';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cities: []
+function App() {
+  const [userRole, setUserRole] = useState(localStorage.getItem('userRole') || '');
+
+  useEffect(() => {
+    if (userRole) {
+      localStorage.setItem('userRole', userRole);
+    } else {
+      localStorage.removeItem('userRole');
     }
-  }
+  }, [userRole]);
 
-    componentDidMount() {
-    	fetch('http://localhost:8080/cities')
-    	.then(res => res.json())
-    	.then(json => json)
-    	.then(cities => this.setState({ 'cities': cities }))
-    }
+  return (
+    <Router>
+      <Routes>
+        {/* Login page */}
+        <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
 
-  render() {
-    return (
-      <div className="App">
-      <nav className="navbar navbar-light bg-light">
-                <a className="navbar-brand" href="./">
-                  <img src={logo} alt="logo" width="40" /> City List
-                </a>
-              </nav>
-        <Table cities={ this.state.cities }/>
-      </div>
-    );
-  }
+        {/* Redirect root to appropriate dashboard if logged in */}
+        <Route
+          path="/"
+          element={
+            userRole
+              ? userRole === 'admin'
+                ? <Navigate to="/AdminDashboard" replace />
+                : <Navigate to="/UserDashboard" replace />
+              : <Navigate to="/login" replace />
+          }
+        />
+
+        {/* Admin dashboard */}
+        <Route
+          path="/AdminDashboard"
+          element={userRole === 'admin' ? <AdminDashboard /> : <Navigate to="/login" replace />}
+        />
+
+        {/* User dashboard */}
+        <Route
+          path="/UserDashboard"
+          element={userRole === 'user' ? <UserDashboard /> : <Navigate to="/login" replace />}
+        />
+
+        {/* Fallback for unmatched routes */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
